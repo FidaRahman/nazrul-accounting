@@ -5,7 +5,7 @@ import Home from './pages/Home'
 import About from './pages/About'
 import Services from './pages/Services'
 import Benefits from './pages/Benefits'
-import FAQ from './pages/FAQ'
+import FAQ from './pages/Faq'
 import Contact from './pages/Contact'
 
 export default function App() {
