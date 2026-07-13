@@ -1,0 +1,89 @@
+/* src/index.css */
+@import "tailwindcss";
+
+@theme {
+  /* Display serif = established / trustworthy. Sans = modern. Mono = the
+     accounting voice: ledger figures, form fields, tracked-out labels
+     (echoes the letterspacing on the logo seal). */
+  --font-sans: "Inter", ui-sans-serif, system-ui, sans-serif;
+  --font-display: "Fraunces", "Iowan Old Style", Georgia, serif;
+  --font-mono: "IBM Plex Mono", ui-monospace, SFMono-Regular, monospace;
+
+  /* Blues sampled from the logo */
+  --color-brand-50:  #eff5ff;
+  --color-brand-100: #dbe8fe;
+  --color-brand-200: #bdd5fd;
+  --color-brand-300: #93b8fb;
+  --color-brand-500: #3574d9;
+  --color-brand-600: #0b4da8; /* logo blue */
+  --color-brand-700: #093c84;
+
+  /* Institutional navy — heroes and footer */
+  --color-navy-800: #0a1e3f;
+  --color-navy-900: #06152e;
+
+  /* Gold star from the logo — used sparingly */
+  --color-gold: #e9b949;
+
+  --color-paper:    #f5f7fa;
+  --color-ink:      #0f1b2d;
+  --color-ink-soft: #46556b;
+}
+
+@layer base {
+  html { scroll-behavior: smooth; }
+
+  body {
+    font-family: var(--font-sans);
+    color: var(--color-ink-soft);
+  }
+
+  /* Headlines carry the serif. Smaller headings stay in the sans. */
+  h1, h2 {
+    font-family: var(--font-display);
+    font-weight: 600;
+    letter-spacing: -0.015em;
+  }
+}
+
+/* --- Scroll reveal --- */
+.reveal {
+  opacity: 0;
+  transform: translateY(18px);
+  transition:
+    opacity 700ms cubic-bezier(0.16, 1, 0.3, 1),
+    transform 700ms cubic-bezier(0.16, 1, 0.3, 1);
+}
+.reveal.is-visible {
+  opacity: 1;
+  transform: none;
+}
+
+/* --- Rotating headline word --- */
+@keyframes word-in {
+  from { opacity: 0; transform: translateY(0.4em); }
+  to   { opacity: 1; transform: none; }
+}
+.animate-word {
+  animation: word-in 500ms cubic-bezier(0.16, 1, 0.3, 1) both;
+}
+
+/* --- Service panel swap --- */
+@keyframes panel-in {
+  from { opacity: 0; transform: translateY(10px); }
+  to   { opacity: 1; transform: none; }
+}
+.animate-panel {
+  animation: panel-in 400ms cubic-bezier(0.16, 1, 0.3, 1) both;
+}
+
+/* --- Anyone who asks for less motion gets none of it --- */
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  .reveal { opacity: 1; transform: none; transition: none; }
+  *, *::before, *::after {
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.001ms !important;
+  }
+}
