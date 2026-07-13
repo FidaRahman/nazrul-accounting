@@ -2,7 +2,7 @@
 import { useEffect, useState } from 'react'
 import { useLocation } from 'react-router-dom'
 import { SETMORE_URL } from '../config'
-import { SERVICE_LIST, SERVICE_PILLARS, SEGMENTS } from '../data/services'
+import { SERVICE_LIST, SERVICE_PILLARS, SEGMENTS } from '../data/Services'
 import PageHero from '../components/PageHero'
 import Reveal from '../components/Reveal'
 

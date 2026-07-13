@@ -1,7 +1,7 @@
 // src/pages/Home.jsx
 import { Link } from 'react-router-dom'
 import { SETMORE_URL, BUSINESS } from '../config'
-import { SERVICE_LIST, SERVICE_PILLARS, INDUSTRIES } from '../data/services'
+import { SERVICE_LIST, SERVICE_PILLARS, INDUSTRIES } from '../data/Services'
 import { SealMark } from '../components/PageHero'
 import RotatingWord from '../components/RotatingWord'
 import Reveal from '../components/Reveal'
